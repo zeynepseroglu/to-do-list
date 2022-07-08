@@ -1,0 +1,47 @@
+﻿@using EntityLayer.Concrete
+@model List<Gorev>
+    @{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">İncelemeler</h4>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Başlık</th>
+                                <th>Açıklama</th>
+                                <th>Başlangıç Tarihi</th>
+                                <th>Bitiş Tarihi</th>
+                                <th>Kullanıcı</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.TaskID</td>
+                                <td>@item.Description</td>
+                                <td>@item.StartTime</td>
+                                <td>@item.EndTime</td>
+                                <td>@item.User</td>
+                                <td><a href="/Gorev/DeleteGorev/@item.TaskID" class="btn btn-outline-danger">Sil</a></td>
+                                <td><a href="/Gorev/EditGorev/@item.TaskID" class="btn btn-outline-success">Güncelle</a></td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>
+                    <a href="/Gorev/AddGorev/" class="btn btn-outline-info">Gorev Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+

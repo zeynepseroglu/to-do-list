@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Gorev
+@{
+    ViewData["Title"] = "AddGorev";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Görev Düzenleme</h2>
+<br />
+@using (Html.BeginForm("EditGorev", "Gorev", FormMethod.Post))
+{
+    <form class="form-group" method="post">
+        @Html.LabelFor(x => x.TaskID)
+        @Html.TextBoxFor(x => x.TaskID, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Title)
+        @Html.TextBoxFor(x => x.Title, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Description)
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.StartTime)
+        @Html.TextBoxFor(x => x.StartTime, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.EndTime)
+        @Html.TextBoxFor(x => x.EndTime, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.User)
+        @Html.DropDownListFor(x => x.User, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+
+        <button class="btn btn-primary">Kaydet</button>
+    </form>
+}
+
